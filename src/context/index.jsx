@@ -29,8 +29,7 @@ function AppContext(props) {
                 album_cover: el.album.cover_xl
             }
         });
-
-        console.log(tempSongs);
+        setSongs(tempSongs);
         
     }
 
@@ -38,6 +37,7 @@ function AppContext(props) {
     return (
         <MainContext.Provider
           value = {{
+              songs,
           }}
         >
           {props.children}
