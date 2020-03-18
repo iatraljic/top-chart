@@ -14,8 +14,15 @@
 }
 
 .picture-container {
+    display: flex;
+    justify-content: flex-end !important;
+    align-items: flex-start !important;
     height: 500px;
     width: 500px;
+}
+
+.btn {
+    border-radius: 0;
 }
 
 .modal-popularity {

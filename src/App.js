@@ -10,7 +10,14 @@ function App() {
 
   return (
     <Container>
-      <Jumbotron fluid style={{backgroundColor: '#43286f', color: 'white'}}>
+      <Jumbotron fluid
+        style={{
+          backgroundColor: '#43286f',
+          color: 'black',
+          backgroundImage: 'url("https://ak6.picdn.net/shutterstock/videos/1023807856/thumb/1.jpg")',
+          backgroundSize: 'contain',
+        }}
+      >
         <Container fluid>
           <h1 
             className="display-3"

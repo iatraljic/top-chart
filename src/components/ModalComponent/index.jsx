@@ -13,15 +13,34 @@ const ModalComponent = ({modal, toggle}) => {
               backgroundImage:`url('${modal.album_cover_big}')`,
           }}
       >
+        <Button
+            color="danger"
+            onClick={() => toggle({})}
+        >
+          X
+        </Button>
       </Row>
       <Row>
-        <Col lg="3" className="modal-popularity">
+        <Col
+          lg="3"
+          className="modal-popularity"
+        >
           {modal.position}
         </Col>
         <Col>
-          <Row className="modal-title">{modal.title}</Row>
-          <Row className="modal-artist">by {modal.artist}</Row>
-          <Row className="modal-duration">
+          <Row
+            className="modal-title"
+          >
+            {modal.title}
+          </Row>
+          <Row
+            className="modal-artist"
+          >
+            by {modal.artist}
+          </Row>
+          <Row
+            className="modal-duration"
+          >
             Duration:
             {
               parseInt(modal.duration/60) < 10 ?
@@ -36,7 +55,6 @@ const ModalComponent = ({modal, toggle}) => {
             }
           </Row>
         </Col>
-        <Button color="secondary" onClick={() => toggle({})}>CLOSE MODAL</Button>
       </Row>
     </Modal>
   );
