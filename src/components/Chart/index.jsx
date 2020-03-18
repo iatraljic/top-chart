@@ -2,39 +2,55 @@ import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
 
 
-function Chart({songs}) {
+function Chart({songs, sort}) {
     
     const showChart = () => {
         let tempChart = [];
+        let sortSongs = songs.map(el => el);
 
-        tempChart = songs.map(el => 
-            <Row
+        if(sort === 'd')
+            sortSongs.sort((a,b) => ( a.duration > b.duration ? -1 : 1));
+        else if (sort === 'a')
+            sortSongs.sort((a,b) => ( a.duration < b.duration ? -1 : 1));
+
+
+        console.log(sortSongs);
+
+        tempChart = sortSongs.map(el => 
+            <div
                 style={{
                         display: "flex",
-                        height: "100px",
-                        width: "100%",
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
                         padding: 0,
-                        margin: 0
+                        margin: "20px 0 0 0",
+                        border: 'solid 1px'
                     }}
             >
-                <Col>{el.title}</Col>
-                <Col>{el.artist}</Col>
-                <Col
+                <div
                     style={{
+                            height: '250px',
+                            width: '250px',
                             backgroundImage:`url("${el.album_cover}")`,
                             backgroundRepeat: 'no-repeat',
-                            backgroundSize: 'contain'
+                            backgroundSize: 'fit',
                         }}
                 >
-                </Col>
-            </Row>
+                </div>
+                <div>
+                    {el.title}
+                </div>
+                <div>
+                    {el.artist}
+                </div>
+            </div>
         );
         
         return tempChart;
     };
 
     return(
-        <Container fluid>
+        <Container fluid="md" style={{marginTop: "50px", marginBottom: "50px"}}>
             {songs.length!==0 && showChart()}
         </Container>
     );

@@ -24,9 +24,9 @@ function AppContext(props) {
                 duration: el.duration,
                 position: el.position,
                 artist: el.artist.name,
-                artist_picture: el.artist.picture_xl,
+                artist_picture: el.artist.picture_medium,
                 album_title: el.album.title,
-                album_cover: el.album.cover_xl
+                album_cover: el.album.cover_medium
             }
         });
         setSongs(tempSongs);
