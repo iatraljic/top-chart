@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Row, Col } from 'reactstrap';
+import { Row, Col } from 'reactstrap';
 
 import ModalComponent from '../ModalComponent/index';
 
@@ -17,7 +17,6 @@ function Chart({songs, sort}) {
         else if (sort === 'a')
             sortSongs.sort((a,b) => ( a.duration < b.duration ? -1 : 1));
 
-        console.log(sortSongs);
         tempChart = sortSongs.map(el => 
             <Row
                 className="chart-element"
@@ -45,8 +44,13 @@ function Chart({songs, sort}) {
 
     return(
         <>
-            {modal.title !== undefined && <ModalComponent modal={modal} toggle={toggle}/>}
-            {songs.length!==0 && showChart()}
+            {
+                modal.title !== undefined &&
+                <ModalComponent modal={modal} toggle={toggle}/>
+            }
+            {
+                songs.length!==0 && showChart()
+            }
         </>
     );
 }
