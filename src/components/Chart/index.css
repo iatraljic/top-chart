@@ -1,0 +1,44 @@
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+.chart-element {
+    margin-top: 20px;
+}
+
+.chart-picture-container {
+    height: 250px;
+    width: 250px;
+}
+
+.chart-picture-container:hover {
+    cursor: pointer;
+    background-size: 110%;
+    background-position: center;
+    opacity: .7;
+}
+
+.title {
+    color: #344072;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.title:hover {
+    cursor: pointer;
+    font-size: 22px;
+}
+
+.artist {
+    color: #00000080;
+    font-size: 14px;
+}
+
+.artist:hover {
+    cursor: pointer;
+    font-size: 16px;
+}

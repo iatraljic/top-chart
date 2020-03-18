@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 
+import ModalComponent from '../ModalComponent/index';
+
+import './index.css';
 
 function Chart({songs, sort}) {
-    
+    const [modal, setModal] = useState({});
+
     const showChart = () => {
         let tempChart = [];
         let sortSongs = songs.map(el => el);
@@ -13,46 +17,37 @@ function Chart({songs, sort}) {
         else if (sort === 'a')
             sortSongs.sort((a,b) => ( a.duration < b.duration ? -1 : 1));
 
-
         console.log(sortSongs);
-
         tempChart = sortSongs.map(el => 
-            <div
-                style={{
-                        display: "flex",
-                        justifyContent: 'space-between',
-                        alignItems: 'center',
-                        padding: 0,
-                        margin: "20px 0 0 0",
-                        border: 'solid 1px'
-                    }}
+            <Row
+                className="chart-element"
+                onClick={() => toggle(el)}
+                key={el.position}
             >
-                <div
-                    style={{
-                            height: '250px',
-                            width: '250px',
-                            backgroundImage:`url("${el.album_cover}")`,
-                            backgroundRepeat: 'no-repeat',
-                            backgroundSize: 'fit',
+                <Col lg="3">
+                    <Row
+                        className="chart-picture-container"
+                        style={{
+                            backgroundImage:`url('${el.album_cover}')`,
                         }}
-                >
-                </div>
-                <div>
-                    {el.title}
-                </div>
-                <div>
-                    {el.artist}
-                </div>
-            </div>
+                    >
+                    </Row>
+                    <Row className="title">{el.title}</Row>
+                    <Row className="artist">by {el.artist}</Row>
+                </Col>
+            </Row>
         );
         
         return tempChart;
     };
 
+    const toggle = (el) => setModal(el);
+
     return(
-        <Container fluid="md" style={{marginTop: "50px", marginBottom: "50px"}}>
+        <>
+            {modal.title !== undefined && <ModalComponent modal={modal} toggle={toggle}/>}
             {songs.length!==0 && showChart()}
-        </Container>
+        </>
     );
 }
 

@@ -1,0 +1,43 @@
+.modal-content{
+    background-color: #fff0 !important;
+    width: 500px;
+    height: 800px;
+    border: 0;
+}
+
+.modal-content > .row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+.picture-container {
+    height: 500px;
+    width: 500px;
+}
+
+.modal-popularity {
+    display: flex;
+    flex-direction: column;
+    color: #f6f145;
+    font-size: 100px;
+    font-weight: bold;    
+}
+
+.modal-title {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.modal-artist {
+    color: white;
+    font-size: 20px;
+}
+
+.modal-duration {
+    color: white;
+    font-size: 20px;
+}

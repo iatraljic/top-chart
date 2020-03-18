@@ -25,8 +25,10 @@ function AppContext(props) {
                 position: el.position,
                 artist: el.artist.name,
                 artist_picture: el.artist.picture_medium,
+                artist_picture_big: el.artist.picture_big,
                 album_title: el.album.title,
-                album_cover: el.album.cover_medium
+                album_cover: el.album.cover_medium,
+                album_cover_big: el.album.cover_big,
             }
         });
         setSongs(tempSongs);
