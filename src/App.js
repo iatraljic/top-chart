@@ -12,28 +12,27 @@ function App() {
     <Container>
       <Jumbotron fluid
         style={{
-          backgroundColor: '#43286f',
+          backgroundColor: 'white',
           color: 'black',
-          backgroundImage: 'url("https://ak6.picdn.net/shutterstock/videos/1023807856/thumb/1.jpg")',
-          backgroundSize: 'contain',
+          borderBottom: 'solid 1px'
         }}
       >
         <Container fluid>
           <h1 
             className="display-3"
+            style={{display: 'flex', justifyContent: 'center'}}
           >
             Top pop
           </h1>
           <p
             className="lead"
+            style={{display: 'flex', justifyContent: 'center'}}
           >
             Top 10 most popular pop songs
           </p>
         </Container>
       </Jumbotron>
-      <label>
-        Sort by
-      </label><br/>
+      <label>Sort by</label><br/>
       <Input
         type="select"
         style={{width: '20%'}}

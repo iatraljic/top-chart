@@ -13,9 +13,17 @@ function Chart({songs, sort}) {
         let sortSongs = songs.map(el => el);
 
         if(sort === 'd')
-            sortSongs.sort((a,b) => ( a.duration > b.duration ? -1 : 1));
+            sortSongs.sort((a,b) => ( 
+                a.duration > b.duration ? -1 : 
+                    a.duration < b.duration ? 1 : 0
+                )
+            );
         else if (sort === 'a')
-            sortSongs.sort((a,b) => ( a.duration < b.duration ? -1 : 1));
+            sortSongs.sort((a,b) => ( 
+                a.duration < b.duration ? -1 : 
+                    a.duration > b.duration ? 1 : 0
+                )
+            );
 
         tempChart = sortSongs.map(el => 
             <Row
